@@ -1,0 +1,92 @@
+
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="container">
+    <div class="jumbotron" style="margin:0px;">
+    <div class="row">
+        <div class="col-12" *ngIf="foodData1">
+                <div  class="card">
+                        <img class="card-img-top" src={{url}} alt="Card image cap" width="375vw" height="350px">
+                        <div class="card-body" style="text-align:left">
+                          
+                          
+                          
+                        </div>
+                </div>
+                <br>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-info">Name:{{title}}</li>
+                <li class="list-group-item list-group-item-info">Owner Name:{{ownerName}}</li>
+                <li class="list-group-item list-group-item-info">Description:{{description}}</li>
+                
+            </ul>
+            <br />
+            
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-6 offset-md-3" *ngIf="foodData1">
+                <h3>
+                    <h2 class="form-signin-heading">Provide Review</h2>
+                </h3>
+                <form name="form" (ngSubmit)="f.form.valid && registerFunction()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" placeholder="Enter First Name" class="form-control" name="firstName"
+                            [(ngModel)]="firstName" #firstName1="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && firstName1.invalid }" required />
+                        <div *ngIf="f.submitted && firstName1.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName1.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" placeholder="Enter Last Name" class="form-control" name="lastName"
+                            [(ngModel)]="lastName" #lastName1="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && lastName1.invalid }" required />
+                        <div *ngIf="f.submitted && lastName1.invalid" class="invalid-feedback">
+                            <div *ngIf="lastName1.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <select placeholder="Select rating" class="form-control" name="rating" [(ngModel)]="rating"
+                              #rating1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rating1.invalid }" required>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                            </select>
+                            <div *ngIf="f.submitted && rating1.invalid" class="invalid-feedback">
+                              <div *ngIf="rating1.errors.required">rating is required</div>
+                            </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                                <label for="reason">Reason</label>
+                                <input type="text" placeholder="Enter reason" class="form-control" name="reason" [(ngModel)]="reason"
+                                  #reason1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reason1.invalid }" required />
+                                <div *ngIf="f.submitted && reason1.invalid" class="invalid-feedback">
+                                  <div *ngIf="reason1.errors.required">reason is required</div>
+                                </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                        <button type="button" class="btn btn-info" (click)="goBack()">Go Back</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,12 @@
+.card{
+    height:450px;
+    width: 80vw;
+    
+    text-align: center;
+}
+
+@media only screen and (max-width: 490px) {
+    .card-img-top {
+      width:75vw;
+    }
+  }
