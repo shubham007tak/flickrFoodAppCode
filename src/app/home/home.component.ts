@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(public cardHttpService: CardHttpService, private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
-
+    // tslint:disable-next-line:no-unused-expression
     this.ratingInfo = this.cardHttpService.getUserInfoFromLocalstorage();
     this.spinnerService.show();
     this.foodData = this.cardHttpService.getAllFoods().subscribe(
@@ -33,8 +33,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         for (const food in this.foodDetail) {
           // tslint:disable-next-line:max-line-length
           this.foodDetail[food].url = `https://live.staticflickr.com/${this.foodDetail[food].server}/${this.foodDetail[food].id}_${this.foodDetail[food].secret}_z.jpg`;
-          if (this.foodDetail[food].id === this.ratingInfo.id ) {
+          if (this.ratingInfo !== null && this.foodDetail[food].id === this.ratingInfo.id) {
           this.foodDetail[food].rating = this.ratingInfo.rating ;
+          }  else {
+            // tslint:disable-next-line:no-unused-expression
+            this.foodDetail[food].rating === null;
           }
         }
         this.spinnerService.hide();

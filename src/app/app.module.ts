@@ -39,7 +39,9 @@ import { StarRatingModule } from 'angular-star-rating';
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'book/:charId', component: BookViewComponent}
+      {path: 'book/:charId', component: BookViewComponent},
+      {path: '*', component: HomeComponent},
+      {path: '**', component: HomeComponent}
     ])
   ],
   providers: [CardHttpService],
